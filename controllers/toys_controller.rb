@@ -37,7 +37,7 @@ class ToysController < Sinatra::Base
   end
 
   post '/' do
-    toy.Toy.new
+    toy = Toy.new
     toy.title = params[:title]
     toy.toy_body = params[:toy_body]
     toy.save

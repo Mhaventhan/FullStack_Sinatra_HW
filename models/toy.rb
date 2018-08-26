@@ -19,7 +19,7 @@ class Toy
   def self.all
     #create a connection
     conn = self.open_connection
-    sql = "SELECT id,title,toy_body FROM toy ORDER BY id"
+    sql = "SELECT id, title, toy_body FROM toy ORDER BY id"
 
     results = conn.exec(sql)
     toys = results.map do |result|
