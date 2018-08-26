@@ -7,14 +7,13 @@ class Toy
 
   def save
     conn = Toy.open_connection
-    if(!self.id)
-      sql = "INSERT INTO toy (title,img_url, toy_body) VALUES ('#{self.title}','#{self.img_url}' '#{self.toy_body}') "
-    else
-      sql = "UPDATE toy SET title='#{self.title}', img_url='#{img_url}', toy_body='#{self.toy_body}'WHERE id = #{self.id}"
-    end
-
-    conn.exec(sql)
-  end
+    if (!self.id)
+   sql = "INSERT INTO toy (title, img_url, toy_body) VALUES ('#{self.title}','#{self.img_url}', '#{self.toy_body}')"
+ else
+   sql = "UPDATE toy SET title='#{self.title}', img_url='#{self.img_url}', toy_body=#{self.toy_body} WHERE id = #{self.id}"
+ end
+ conn.exec(sql)
+end
 
   def self.all
     #create a connection

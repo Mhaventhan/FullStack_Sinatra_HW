@@ -37,9 +37,9 @@ class ToysController < Sinatra::Base
 
 
   post '/' do
-    toy = Toy.
-    toy.img_url = params[:img_url]
+    toy = Toy.new
     toy.title = params[:title]
+    toy.img_url = params[:img_url]
     toy.toy_body = params[:toy_body]
     toy.save
     redirect '/'
