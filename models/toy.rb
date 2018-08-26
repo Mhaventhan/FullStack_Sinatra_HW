@@ -1,5 +1,5 @@
 class Toy
-  attr_accessor(:id, :title, :toy_body)
+  attr_accessor(:id, :title, :img_url, :toy_body)
   def self.open_connection
     conn = PG.connect(dbname:"toy")
 
@@ -8,9 +8,9 @@ class Toy
   def save
     conn = Toy.open_connection
     if(!self.id)
-      sql = "INSERT INTO toy (title, toy_body) VALUES ('#{self.title}', '#{self.toy_body}') "
+      sql = "INSERT INTO toy (title,img_url, toy_body) VALUES ('#{self.title}','#{self.img_url}' '#{self.toy_body}') "
     else
-      sql = "UPDATE toy SET title='#{self.title}',toy_body='#{self.toy_body}'WHERE id = #{self.id}"
+      sql = "UPDATE toy SET title='#{self.title}', img_url='#{img_url}', toy_body='#{self.toy_body}'WHERE id = #{self.id}"
     end
 
     conn.exec(sql)
@@ -19,7 +19,7 @@ class Toy
   def self.all
     #create a connection
     conn = self.open_connection
-    sql = "SELECT id, title, toy_body FROM toy ORDER BY id"
+    sql = "SELECT id, title, img_url, toy_body FROM toy ORDER BY id"
 
     results = conn.exec(sql)
     toys = results.map do |result|
@@ -47,7 +47,9 @@ class Toy
     toy = Toy.new
     toy.id = toy_data['id']
     toy.title = toy_data['title']
+    toy.img_url = toy_data['img_url']
     toy.toy_body = toy_data['toy_body']
+
 
     toy
   end

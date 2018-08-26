@@ -4,6 +4,7 @@ class ToysController < Sinatra::Base
  # Sets the view directory correctly
  set :views, Proc.new {File.join(root,'views')}
 
+ # Initialise the sinatra reloader for continuous refresh
   configure :development do
     register Sinatra::Reloader
   end
@@ -28,16 +29,16 @@ class ToysController < Sinatra::Base
 
   end
   get '/:id/edit' do
-    @title = 'Edit'
     id = params[:id].to_i
     @toy = Toy.find(id)
-
     erb :'toys/edit'
 
   end
 
+
   post '/' do
-    toy = Toy.new
+    toy = Toy.
+    toy.img_url = params[:img_url]
     toy.title = params[:title]
     toy.toy_body = params[:toy_body]
     toy.save
@@ -47,6 +48,7 @@ class ToysController < Sinatra::Base
   put "/:id" do
     id = params[:id].to_i
     toy = Toy.find(id)
+    toy.img_url = params[:img_url]
     toy.title = params[:title]
     toy.toy_body = params[:toy_body]
     toy.save
