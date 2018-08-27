@@ -1,0 +1,36 @@
+body{
+  background-color: #c5cbd8;
+}
+.navbar-logo img{
+  padding: 3px;
+  width: 105px;
+  height: 41px;
+}
+
+nav li{
+  font-size: 25px;
+  font-family: 'Monoton', cursive;
+}
+
+h1{
+  color: #6ba2ea;
+  font-family: 'Shrikhand', cursive;
+}
+.navbar{
+  background-color: #f9c063;
+}
+
+.index, .new, .edit{
+  padding-top: 50px;
+  margin-bottom: : 500px;
+
+}
+
+#show{
+  padding-top: 100px;
+}
+
+img{
+  height: 300px;
+  width: 204px;
+}
