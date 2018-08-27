@@ -11,7 +11,7 @@ class ToysController < Sinatra::Base
 
 
   get "/" do
-    @title = "List of Toys"
+    @title = "Mav's Tv Shows"
     @toys = Toy.all
     erb :'toys/index'
   end
