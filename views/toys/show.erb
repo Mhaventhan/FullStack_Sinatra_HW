@@ -1,14 +1,14 @@
-<div class="row">
+<div id="show" class="row">
   <div class="col-mid-12">
     <h1 class="titleStyle"><%= @toy.title %></h1>
     <p><%= @toy.toy_body %></p>
   </div>
 </div>
-<div class="row">
-  <div class="col-md-12">
+<div class="row fluid">
+  <div class="col-md-6">
     <img src="<%= @toy.img_url %>" alt="not supported">
-    <a href="<%= @toy.id %>/edit">Edit</a>
     <form action="/<%= @toy.id%>" method="POST">
+      <a href="<%= @toy.id %>/edit">Edit</a>
       <input type="hidden" name="_method" value="DELETE">
       <input type="submit"  value="Delete">
     </form>
